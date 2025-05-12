@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi Weather Logger</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Raspberry Pi Weather Logger</h1>
+        
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" required>
+                
+                <label for="endDate">End Date:</label>
+                <input type="date" id="endDate" name="endDate" required>
+            </div>
+
+            <div class="form-group">
+                <h3>Select Data to Display:</h3>
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" name="dataType" value="temp_daily"> Temperature - Daily Average
+                    </label>
+                    <label>
+                        <input type="checkbox" name="dataType" value="temp_hourly"> Temperature - Hourly Values
+                    </label>
+                    <label>
+                        <input type="checkbox" name="dataType" value="humidity_daily"> Humidity - Daily Average
+                    </label>
+                    <label>
+                        <input type="checkbox" name="dataType" value="humidity_hourly"> Humidity - Hourly Values
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" disabled>Generate Charts</button>
+        </form>
+
+        <div class="charts-container">
+            <div class="chart-wrapper">
+                <canvas id="dailyChart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="hourlyChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/validate.js"></script>
+    <script src="assets/charts.js"></script>
+</body>
+</html> 
